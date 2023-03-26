@@ -8,19 +8,38 @@
 
 
 <body>
-  <h1>Some famous Computer Scientists</h1>
-  <div>{{data}}</div>
-
+  <h1>Available Building</h1>
   <div>
-    {% for n in data %}
+    {% for n in building %}
     <div>{{n}}</div>
     {% endfor %}
   </div>
 
-<p><a href="another">Go to the other page</a></p>
+    <h1>Department Supported</h1>
+  <div>
+    {% for n in department %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+<p><a href="another">Announce your Events!</a></p>
 
 <form method="POST" action="/add">
-<p>Name of new computer scientist: <input type="text" name="name"> <input type="submit" value="Add"></p>
+<p>Name of new computer scientist:<br>
+  <input type="text" name="name"><br>
+   Brief Introduction(no more than 30 words, optional):<br>
+  <input type="text" name="introduction"><br>
+  Brief Introduction(no more than 30 words, optional):<br>
+  <input type="text" name="description"><br>
+  Date:<br>
+  <input type="date" name="date"><br>
+  Department(Abbreviation, optional):<br>
+  <input type="text" name="dept_id"><br>
+  Intended Building:<br>
+  <input type="text" name="building"><br>
+  Intended Room:<br>
+  <input type="number" name="code"><br>
+  <input type="submit" value="Add"></p>
 </form>
 
 </body>
