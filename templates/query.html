@@ -21,7 +21,7 @@
                     <h3>Search for event place</h3>
                     {% for b in building %}
                     <input type="checkbox" id="{{b}}" name="build" value="{{b}}">
-                    <label for="{{b}}">{{d}}</label>
+                    <label for="{{b}}">{{d | upper}}</label>
                     {% endfor %}
                 </div>
 
@@ -37,7 +37,7 @@
                     <h3>Search for happening date</h3>
                     <label for="date">Start date:</label>
                     <input type="date" id="date" name="startdate"
-                           min="2023-01-16" max="2023-05-24">
+                           min="2023-01-01" max="2023-05-31">
                 </div>
             </div>
             <div>
