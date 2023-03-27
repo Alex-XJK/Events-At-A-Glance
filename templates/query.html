@@ -1,0 +1,59 @@
+<html>
+<style>
+    body{
+        font-size: 15pt;
+        font-family: arial;
+    }
+</style>
+
+
+<body>
+<form method="POST" action="/query">
+    <fieldset>
+        <legend>Selection Criteria</legend>
+        <div>
+            <div id="title">
+                <h4>Search for event title</h4>
+                <input type="text" id="name" name="name" maxlength="30" size="30">
+                <div>
+                    <input type="radio" id="exm" name="match" value="exact" checked>
+                    <label for="exm">Exact Matching</label>
+                    <input type="radio" id="fum" name="match" value="fuzzy">
+                    <label for="fum">Fuzzy Matching</label>
+                </div>
+            </div>
+
+            <div id="qbuild">
+                <h4>Search for event place</h4>
+                {% for b in building %}
+                <input type="checkbox" id="{{b}}" name="build" value="{{b}}">
+                <label for="{{b}}">{{d}}</label>
+                {% endfor %}
+            </div>
+
+            <div id="qdept">
+                <h4>Search for host department</h4>
+                {% for d in department %}
+                <input type="checkbox" id="{{d}}" name="dept" value="{{d}}">
+                <label for="{{d}}">{{d}}</label>
+                {% endfor %}
+            </div>
+
+            <div id="qdate">
+                <h4>Search for happening date</h4>
+                <label for="date">Start date:</label>
+                <input type="date" id="date" name="startdate"
+                       min="2023-01-16" max="2023-05-24">
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="lookup">
+            <input type="reset" value="clear">
+        </div>
+    </fieldset>
+</form>
+
+</body>
+
+
+</html>
