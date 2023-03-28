@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--This is a static page.-->
+    <h1>{% block title %} About {% endblock %}</h1>
+    <p>
+      The project <q>Events-At-A-Glance</q> is a
+      Python Flask and PostgreSQL based
+      one-stop campus event managing and searching platform.<br>
+      Independently designed and developed in Spring 2023 by two Columbia students:
+      <dl>
+          <dt>Xuande Feng</dt>
+          <dd>M.Sc. Computer Science, 2024'</dd>
+          <dt>Alex Jiakai XU</dt>
+          <dd>B.A. Computer Science, 2024'</dd>
+      </dl>
+    </p>
+    <p>
+      If you have any concerns or suggestions for improvement,
+      or would like to contribute to this project,
+      please feel free to contact us.
+    </p>
+{% endblock %}

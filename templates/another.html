@@ -18,20 +18,24 @@
   </div>
 
 <form method="POST" action="/add">
-<p>Name of new computer scientist:<br>
-  <input type="text" name="name"><br>
-   Brief Introduction(no more than 30 words, optional):<br>
-  <input type="text" name="introduction"><br>
-  Brief Introduction(no more than 30 words, optional):<br>
-  <input type="text" name="description"><br>
-  Date:<br>
-  <input type="date" name="date"><br>
-  Department(Abbreviation, optional):<br>
-  <input type="text" name="dept_id"><br>
-  Intended Building:<br>
-  <input type="text" name="building"><br>
-  Intended Room:<br>
-  <input type="number" name="code"><br>
+     EventID(Mandatory):<br>
+    <input type="text" name="id"><br>
+     <p>Name of new events:<br>
+     <input type="text" name="name"><br>
+      Brief Introduction(no more than 30 words, optional):<br>
+     <input type="text" name="introduction" maxlength="30"><br>
+     Event Description(no more than 300 words, optional):<br>
+     <input type="text" name="description" maxlength="300"><br>
+     Date:<br>
+         <input type="date" name="date" min="2023-01-01" max="2023-05-31"><br>
+    Department(Abbreviation, optional):<br>
+    <input type="text" name="dept_id"><br>
+    Intended Building:<br>
+    <input type="text" name="building"><br>
+    Intended Room:<br>
+    <input type="number" name="code" min="100" max="1000"><br>
+         Intended Starting Time(0-23):
+    <input type="number" name="hour" min="0" max="23"><br>
   <input type="submit" value="Add"></p>
 </form>
 

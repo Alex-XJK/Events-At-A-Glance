@@ -114,7 +114,7 @@ def index():
 
 	# DEBUG: this is debugging code to see what request looks like
 	print(request.args)
-
+	print(request.form)
 
 	#
 	# example of a database query
@@ -175,19 +175,73 @@ def index():
 def another():
 	return render_template("another.html")
 
+@app.route('/hour')
+def hour():
+	return render_template("hour.html")
+
+@app.route('/query')
+def query():
+	select_query = "SELECT building, dept_id from events"
+	cursor = g.conn.execute(text(select_query))
+	names = []
+	department = []
+	for result in cursor:
+		names.append(result[0])
+		department.append(result[1])
+	cursor.close()
+	context = dict(building=names, department=department)
+
+	return render_template("query.html", **context)
+
 
 # Example of adding new data to the database
 @app.route('/add', methods=['POST'])
 def add():
 	# accessing form inputs from user
-	name = request.form['name']
-	
+	id = request.form['id']
+	event_name = request.form['name']
+	intro = request.form['introduction']
+	description = request.form['description']
+	date_of_choice = request.form['date']
+	dept_id = request.form['dept_id']
+	building = request.form['building']
+	code = request.form['code']
+	start_hour = request.form['hour']
+
 	# passing params in for each variable into query
 	params = {}
-	params["new_name"] = name
-	g.conn.execute(text('INSERT INTO test(name) VALUES (:new_name)'), params)
-	g.conn.commit()
-	return redirect('/')
+	params["id"] = id
+	params["event_name"] = event_name
+	params["intro"] = intro
+	params["description"] = description
+	params["date_of_choice"] = date_of_choice
+	params["dept_id"] = dept_id
+	params["building"] = building
+	params["code"] = int(code)
+	params["start_hour"] = int(start_hour)
+
+	# check whether the prefered room exists: if not, build it
+	hours = g.conn.execute(text(f'select start_time from loc_occupancy where building=:building and code=:code and date_occupied=:date_of_choice'), params)
+	room = g.conn.execute(text(f'select * from location where building=:building and code=:code'), params)
+	if room.rowcount == 0:
+		g.conn.execute(text(
+			'INSERT INTO location(building, code) VALUES (:building, :code)'), params)
+	# check whether there is an hour conflict: if yes, lead to hour page
+	for h in hours:
+		if start_hour == h[0]:
+			return redirect('/hour')
+	else:
+		# 1. Insert into Location Occupancy
+		try:
+			g.conn.execute(text('INSERT INTO loc_occupancy(building, code, date_occupied, start_time) VALUES (:building, :code, :date_of_choice, :start_hour)'), params)
+		except:
+			return redirect('/hour')
+		# 2. Insert into Events
+		g.conn.execute(text('INSERT INTO Events(event_id, name_event, introduction, description, date, dept_id, building, code) VALUES (:id, :event_name, :intro, :description, :date_of_choice, :dept_id, :building, :code)'), params)
+		# 3. Insert into Event Occupancy
+		g.conn.execute(text('INSERT INTO Event_occupancy(event_id, start_time) VALUES (:id, :start_hour)'), params)
+		g.conn.commit()
+		return redirect('/')
 
 
 @app.route('/login')
