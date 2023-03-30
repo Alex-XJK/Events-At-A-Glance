@@ -112,56 +112,9 @@ def index():
 	See its API: https://flask.palletsprojects.com/en/1.1.x/api/#incoming-request-data
 	"""
 
-	# DEBUG: this is debugging code to see what request looks like
-	print(request.args)
-	print(request.form)
 
 	#
-	# example of a database query
-	#
-	select_query = "SELECT building, dept_id from events"
-	cursor = g.conn.execute(text(select_query))
-	names = []
-	department = []
-	for result in cursor:
-		names.append(result[0])
-		department.append(result[1])
-	cursor.close()
-
-	#
-	# Flask uses Jinja templates, which is an extension to HTML where you can
-	# pass data to a template and dynamically generate HTML based on the data
-	# (you can think of it as simple PHP)
-	# documentation: https://realpython.com/primer-on-jinja-templating/
-	#
-	# You can see an example template in templates/index.html
-	#
-	# context are the variables that are passed to the template.
-	# for example, "data" key in the context variable defined below will be 
-	# accessible as a variable in index.html:
-	#
-	#     # will print: [u'grace hopper', u'alan turing', u'ada lovelace']
-	#     <div>{{data}}</div>
-	#     
-	#     # creates a <div> tag for each element in data
-	#     # will print: 
-	#     #
-	#     #   <div>grace hopper</div>
-	#     #   <div>alan turing</div>
-	#     #   <div>ada lovelace</div>
-	#     #
-	#     {% for n in data %}
-	#     <div>{{n}}</div>
-	#     {% endfor %}
-	#
-	context = dict(building=names, department=department)
-
-
-	#
-	# render_template looks in the templates/ folder for files.
-	# for example, the below file reads template/index.html
-	#
-	return render_template("index.html", **context)
+	return render_template("index.html")
 
 #
 # This is an example of a different path.  You can see it at:
@@ -191,15 +144,19 @@ def hour():
 
 @app.route('/query')
 def query():
-	select_query = "SELECT building, dept_id from events"
-	cursor = g.conn.execute(text(select_query))
+	cursor = []
+	select_building = "SELECT code from building"
+	select_dept = "SELECT dept_id from department"
+	cursor.append(g.conn.execute(text(select_building)))
+	cursor.append(g.conn.execute(text(select_dept)))
 	names = []
 	department = []
-	for result in cursor:
-		# distinct
+	for result in cursor[0]:
 		names.append(result[0])
-		department.append(result[1])
-	cursor.close()
+	for result in cursor[1]:
+		department.append(result[0])
+	for c in cursor:
+		c.close()
 	context = dict(building=names, department=department)
 
 	return render_template("query.html", **context)
@@ -273,28 +230,44 @@ def display():
 	params["dept"] = dept
 	params["date_s"] = date
 
-	if event_name is None:
-		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, Events.description, '
-									 'Events.building, Events.code, Events.building, Events.date, '
-									 'event_occupancy.start_time,'
-									 'Events.dept_id FROM EVENTS left join event_occupancy using(event_id) WHERE'
+	if len(event_name) == 0:
+		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
+									 'Events.description, building.link, Events.code, '
+									 'building.fullname, Events.date, '
+									 'event_occupancy.start_time, department.dept_name '
+									 'FROM EVENTS left join event_occupancy using(event_id) '
+									 'left join building on EVENTS.building=building.code '
+									 'left join department using(dept_id) '
+									 'WHERE'
 									 ' EVENTs.event_id=event_occupancy.event_id and'
-									 ' building=:build and dept_id=:dept} and Events.date=:date_s'), params)
-	elif match == 'exact':
-		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, Events.description, '
-									 'Events.building, Events.code, Events.building, Events.date, event_occupancy.start_time,'
-									 'Events.dept_id FROM EVENTS left join event_occupancy using(event_id) WHERE'
-									 ' EVENTs.event_id=event_occupancy.event_id and '
-									 ' name_event=:event_name'
-									 ' and building=:build and dept_id=:dept and Events.date=:date_s'), params)
+									 ' Events.building=:build and dept_id=:dept and Events.date=:date_s'), params)
+
 	else:
-		params['event_name'] = f'%{event_name}%'
-		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, Events.description, '
-									 'Events.building, Events.code, Events.building, Events.date, event_occupancy.start_time,'
-									 'Events.dept_id FROM EVENTS left join event_occupancy using(event_id) WHERE '
-									 'EVENTs.event_id=event_occupancy.event_id and '
-									 'name_event like :event_name and '
-									 'building=:build and dept_id=:dept and Events.date=:date_s'), params)
+		if match == 'exact':
+			cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
+										 'Events.description, building.link, Events.code, '
+										 'building.fullname, Events.date, '
+										 'event_occupancy.start_time, department.dept_name '
+										 'FROM EVENTS left join event_occupancy using(event_id) '
+										 'left join building on EVENTS.building=building.code '
+										 'left join department using(dept_id) '
+										 'WHERE '
+										 'EVENTs.event_id=event_occupancy.event_id and '
+										 'name_event=:event_name and '
+										 'Events.building=:build and dept_id=:dept and Events.date=:date_s'), params)
+		else:
+			params['event_name'] = f'%{event_name}%'
+			cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
+										 'Events.description, building.link, Events.code, '
+										 'building.fullname, Events.date, '
+										 'event_occupancy.start_time, department.dept_name '
+										 'FROM EVENTS left join event_occupancy using(event_id) '
+										 'left join building on EVENTS.building=building.code '
+										 'left join department using(dept_id) '
+										 'WHERE '
+										 'EVENTs.event_id=event_occupancy.event_id and '
+										 'name_event like :event_name and '
+										 'EVENTS.building=:build and dept_id=:dept and Events.date=:date_s'), params)
 
 	events = []
 	for e in cursor:
@@ -303,7 +276,6 @@ def display():
 				 'date': None, 'hour': None, 'dfname': None}
 		for _ in range(len(event.keys())):
 			event[list(event.keys())[_]] = e[_]
-			print(f'{e[_]} added!')
 		events.append(event)
 
 	cursor.close()
