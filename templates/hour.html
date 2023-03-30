@@ -1,2 +1,12 @@
-This hour has been occupied, please find another location or time!
-<p><a href="../">Return To Homepage!</a></p>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Sorry {% endblock %}</h1>
+    <h3>
+        This hour has been occupied, please find another location or time!
+    </h3>
+    <hr>
+    <p>
+        <a href="{{ url_for('index') }}">Return To Homepage!</a>
+    </p>
+{% endblock %}

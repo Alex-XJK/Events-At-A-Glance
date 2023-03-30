@@ -21,7 +21,7 @@
                     <h3>Search for event place</h3>
                     {% for b in building %}
                     <input type="checkbox" id="{{b}}" name="build" value="{{b}}">
-                    <label for="{{b}}">{{d | upper}}</label>
+                    <label for="{{b}}">{{b | upper}}</label>
                     {% endfor %}
                 </div>
 
