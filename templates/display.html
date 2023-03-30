@@ -2,7 +2,9 @@
 
 {% block content %}
     <h1>{% block title %} Result display {% endblock %}</h1>
+
     {% for e in a_list %}
+
         <div id="{{ e.id }}">
             <table border="1" style="width: 100%">
                 <thead>
