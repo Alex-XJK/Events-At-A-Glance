@@ -8,21 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
     <title>EAAG - {% block title %} {% endblock %}</title>
     <style>
+        header h1 {
+            color: #F11175FF;
+            font-size: 3em;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
         nav a {
             color: #d64161;
             font-size: 1.5em;
             margin-left: 50px;
             text-decoration: none;
         }
+        body{
+            font-size: 15pt;
+            font-family: arial,serif;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('query') }}">Query</a>
-        <a href="{{ url_for('create') }}">Create</a>
-        <a href="{{ url_for('about') }}">About</a>
-    </nav>
+    <header>
+        <h1>Events At A Glance</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('query') }}">Query</a>
+            <a href="{{ url_for('create') }}">Create</a>
+            <a href="{{ url_for('about') }}">About</a>
+        </nav>
+    </header>
     <hr>
     <div class="content">
         {% block content %} {% endblock %}
