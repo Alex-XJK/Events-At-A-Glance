@@ -23,6 +23,8 @@
                     <input type="checkbox" id="{{b}}" name="build" value="{{b}}">
                     <label for="{{b}}">{{b | upper}}</label>
                     {% endfor %}
+                    <input type="checkbox" id="ANY Building" name="build" value="ANY" checked>
+                    <label for="ANY">ANY</label>
                 </div>
 
                 <div id="qdept">
@@ -31,14 +33,14 @@
                     <input type="checkbox" id="{{d}}" name="dept" value="{{d}}">
                     <label for="{{d}}">{{d}}</label>
                     {% endfor %}
-                    <input type="checkbox" id="ANY" name="dept" value="ANY" checked>
+                    <input type="checkbox" id="ANY Dept" name="dept" value="ANY" checked>
                     <label for="ANY">ANY</label>
                 </div>
 
                 <div id="qdate">
                     <h3>Search for happening date</h3>
                     <label for="date">Start date:</label>
-                    <input type="date" id="date" name="startdate"
+                    <input type="date" id="date" name="startdate" value="1900-00-00"
                            min="2023-01-01" max="2023-05-31">
                 </div>
             </div>

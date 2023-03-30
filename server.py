@@ -230,23 +230,33 @@ def display():
 	params["dept"] = dept
 	params["date_s"] = date
 
-	if len(event_name) == 0:
-		if dept == 'ANY':
-			select_criteria = ''
-		else:
-			select_criteria = 'and dept_id=:dept'
-	elif dept == 'ANY':
-		if dept is None:
-			select_criteria = ' and name_event=:event_name'
-		else:
-			select_criteria = ' and name_event=:event_name and dept_id=:dept'
-	else:
-		if dept == 'ANY':
-			select_criteria = ' and name_event like :event_name'
-		else:
-			select_criteria = ' and name_event like :event_name and dept_id=:dept'
 
-	select_criteria = f'Events.building=:build and Events.date=:date_s {select_criteria}'
+	if len(event_name) == 0:
+		select_criteria = 'WHERE Events.event_id=event_occupancy.event_id'
+		if dept != 'ANY':
+			select_criteria += ' and dept_id=:dept '
+		if build != 'ANY':
+			select_criteria += ' and Events.building=:build '
+		if date != '':
+			select_criteria += ' and Events.date=:date_s'
+		if select_criteria == 'WHERE Events.event_id=event_occupancy.event_id':
+			select_criteria = ''
+	elif mathch == 'exact':
+		select_criteria = 'WHERE name_event=:event_name '
+		if dept != 'ANY':
+			select_criteria += ' and dept_id=:dept '
+		if build != 'ANY':
+			select_criteria += ' and Events.building=:build '
+		if date != '':
+			select_criteria += ' and Events.date=:date_s'
+	else:
+		select_criteria = 'WHERE name_event like: event_name'
+		if dept != 'ANY':
+			select_criteria += ' and dept_id=:dept '
+		if build != 'ANY':
+			select_criteria += ' and Events.building=:build '
+		if date != '':
+			select_criteria += ' and Events.date=:date_s'
 
 	exe = f'SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, ' \
 		  f'Events.description, building.link, Events.code, ' \
@@ -255,7 +265,6 @@ def display():
 		  f'FROM EVENTS left join event_occupancy using(event_id) ' \
 		  f'left join building on EVENTS.building=building.code ' \
 		  f'left join department using(dept_id) ' \
-		  f'WHERE ' \
 		  f'{select_criteria}'
 
 	cursor = g.conn.execute(text(exe), params)
