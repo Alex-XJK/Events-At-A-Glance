@@ -231,43 +231,69 @@ def display():
 	params["date_s"] = date
 
 	if len(event_name) == 0:
-		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
-									 'Events.description, building.link, Events.code, '
-									 'building.fullname, Events.date, '
-									 'event_occupancy.start_time, department.dept_name '
-									 'FROM EVENTS left join event_occupancy using(event_id) '
-									 'left join building on EVENTS.building=building.code '
-									 'left join department using(dept_id) '
-									 'WHERE'
-									 ' EVENTs.event_id=event_occupancy.event_id and'
-									 ' Events.building=:build and dept_id=:dept and Events.date=:date_s'), params)
-
-	else:
-		if match == 'exact':
-			cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
-										 'Events.description, building.link, Events.code, '
-										 'building.fullname, Events.date, '
-										 'event_occupancy.start_time, department.dept_name '
-										 'FROM EVENTS left join event_occupancy using(event_id) '
-										 'left join building on EVENTS.building=building.code '
-										 'left join department using(dept_id) '
-										 'WHERE '
-										 'EVENTs.event_id=event_occupancy.event_id and '
-										 'name_event=:event_name and '
-										 'Events.building=:build and dept_id=:dept and Events.date=:date_s'), params)
+		if dept == 'ANY':
+			select_criteria = ''
 		else:
-			params['event_name'] = f'%{event_name}%'
-			cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
-										 'Events.description, building.link, Events.code, '
-										 'building.fullname, Events.date, '
-										 'event_occupancy.start_time, department.dept_name '
-										 'FROM EVENTS left join event_occupancy using(event_id) '
-										 'left join building on EVENTS.building=building.code '
-										 'left join department using(dept_id) '
-										 'WHERE '
-										 'EVENTs.event_id=event_occupancy.event_id and '
-										 'name_event like :event_name and '
-										 'EVENTS.building=:build and dept_id=:dept and Events.date=:date_s'), params)
+			select_criteria = 'and dept_id=:dept'
+	elif dept == 'ANY':
+		if dept is None:
+			select_criteria = ' and name_event=:event_name'
+		else:
+			select_criteria = ' and name_event=:event_name and dept_id=:dept'
+	else:
+		if dept == 'ANY':
+			select_criteria = ' and name_event like :event_name'
+		else:
+			select_criteria = ' and name_event like :event_name and dept_id=:dept'
+
+	select_criteria = f'Events.building=:build and Events.date=:date_s {select_criteria}'
+
+	exe = f'SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, ' \
+		  f'Events.description, building.link, Events.code, ' \
+		  f'building.fullname, Events.date, ' \
+		  f'event_occupancy.start_time, department.dept_name ' \
+		  f'FROM EVENTS left join event_occupancy using(event_id) ' \
+		  f'left join building on EVENTS.building=building.code ' \
+		  f'left join department using(dept_id) ' \
+		  f'WHERE ' \
+		  f'{select_criteria}'
+
+	cursor = g.conn.execute(text(exe), params)
+	# if len(event_name) == 0:
+	# 	cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
+	# 								 'Events.description, building.link, Events.code, '
+	# 								 'building.fullname, Events.date, '
+	# 								 'event_occupancy.start_time, department.dept_name '
+	# 								 'FROM EVENTS left join event_occupancy using(event_id) '
+	# 								 'left join building on EVENTS.building=building.code '
+	# 								 'left join department using(dept_id) '
+	# 								 'WHERE'
+	# 								 ' Events.building=:build and dept_id=:dept and Events.date=:date_s'), params)
+	#
+	# else:
+	# 	if match == 'exact':
+	# 		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
+	# 									 'Events.description, building.link, Events.code, '
+	# 									 'building.fullname, Events.date, '
+	# 									 'event_occupancy.start_time, department.dept_name '
+	# 									 'FROM EVENTS left join event_occupancy using(event_id) '
+	# 									 'left join building on EVENTS.building=building.code '
+	# 									 'left join department using(dept_id) '
+	# 									 'WHERE '
+	# 									 'name_event=:event_name and '
+	# 									 'Events.building=:build and dept_id=:dept and Events.date=:date_s'), params)
+	# 	else:
+	# 		params['event_name'] = f'%{event_name}%'
+	# 		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, '
+	# 									 'Events.description, building.link, Events.code, '
+	# 									 'building.fullname, Events.date, '
+	# 									 'event_occupancy.start_time, department.dept_name '
+	# 									 'FROM EVENTS left join event_occupancy using(event_id) '
+	# 									 'left join building on EVENTS.building=building.code '
+	# 									 'left join department using(dept_id) '
+	# 									 'WHERE '
+	# 									 'name_event like :event_name and '
+	# 									 'EVENTS.building=:build and dept_id=:dept and Events.date=:date_s'), params)
 
 	events = []
 	for e in cursor:
