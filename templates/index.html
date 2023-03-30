@@ -1,32 +1,19 @@
-<html>
-  <style>
-    body{ 
-      font-size: 15pt;
-      font-family: arial;
-    }
-  </style>
+{% extends 'base.html' %}
 
+{% block content %}
+    <h1>{% block title %} Welcome {% endblock %}</h1>
 
-<body>
-  <h1>Available Building</h1>
-  <div>
-    {% for n in building %}
-    <div>{{n}}</div>
-    {% endfor %}
-  </div>
+    <img src="{{ url_for('static', filename='partyevents.png')}}" width="75%" alt="welcome picture">
 
-    <h1>Department Supported</h1>
-  <div>
-    {% for n in department %}
-    <div>{{n}}</div>
-    {% endfor %}
-  </div>
+    <p>
+        Are you tired of looking for information on events from various school platforms?
+        Have you ever been sad that you missed a favorite show?
+        Have you ever missed a chance to meet your future employer because you didn't see a notice?
+    </p>
+    <p>
+        At EAAG, we say goodbye to the past!<br>
+        We use new technology to define a new platform, and a new platform to bring you a new life!
+        Welcome to Events-At-A-Glance, your personal campus event assistant.
+    </p>
 
-<p><a href="query">Search an evnet</a></p>
-<p><a href="another">Announce your Events!</a></p>
-
-
-</body>
-
-
-</html>
+{% endblock %}
