@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Create {% endblock %}</h1>
+    <form method="POST" action="/add">
+        <fieldset>
+            <legend>Events Specifics</legend>
+            <div>
+
+            <div id="eid">
+                    <h3>Give a preferred index to your event</h3>
+                    <label for="id">Event Index:</label>
+                    <input type="text" id="id" name="id"
+                           maxlength="10">
+                </div>
+            <div id="ename">
+                    <h3>Give a name for your event</h3>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"
+                           maxlength="10">
+                </div>
+            <div id="eintro">
+                    <h3>Brief Introduction</h3>
+                    <input type="text" id="intro" name="introduction"
+                           maxlength="30">
+                </div>
+            <div id="edesc">
+                    <h3>Description</h3>
+                    <input type="text" id="desc" name="description"
+                           maxlength="30">
+                </div>
+                <div id="edate">
+                    <h3>Proposing date</h3>
+                    <label for="date">Start date:</label>
+                    <input type="date" id="date" name="date"
+                           min="2023-01-01" max="2023-05-31">
+                </div>
+                <div id="edept">
+                    <h3>Department</h3>
+                    <input type="text" name="dept_id">
+                </div>
+
+                <div id="ebuild">
+                    <h3>Intended Building:</h3>
+                    <input type="text" name="building">
+                </div>
+
+                <div id="eroom">
+                    <h3>Intended Room</h3>
+                    <label for="date">Start date:</label>
+                    <input t type="number" name="code" min="100" max="1000">
+                </div>
+                <div id="etime">
+                    <h3>Intended Starting Time(0-23)</h3>
+                    <input type="number" name="hour" min="0" max="23">
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="add">
+                <input type="reset" value="clear">
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

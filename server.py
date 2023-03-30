@@ -175,6 +175,16 @@ def index():
 def another():
 	return render_template("another.html")
 
+@app.route('/new')
+def new():
+	return render_template("new.html")
+
+
+@app.route('/about')
+def about():
+	return render_template("about.html")
+
+
 @app.route('/hour')
 def hour():
 	return render_template("hour.html")
@@ -186,6 +196,7 @@ def query():
 	names = []
 	department = []
 	for result in cursor:
+		# distinct
 		names.append(result[0])
 		department.append(result[1])
 	cursor.close()
@@ -244,10 +255,79 @@ def add():
 		return redirect('/')
 
 
+@app.route('/display', methods=['POST'])
+def display():
+
+
+	#event = {'id': None, 'name': None, 'intro': None, 'description': None,'room': None, 'date': None, 'hour': None}
+
+	event_name = request.form['name']
+	match = request.form['match']
+	build = request.form['build']
+	dept = request.form['dept']
+	date = request.form['startdate']
+
+	params = {}
+	params["event_name"] = event_name
+	params["build"] = build
+	params["dept"] = dept
+	params["date_s"] = date
+
+	if event_name is None:
+		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, Events.description, '
+									 'Events.building, Events.code, Events.building, Events.date, '
+									 'event_occupancy.start_time,'
+									 'Events.dept_id FROM EVENTS left join event_occupancy using(event_id) WHERE'
+									 ' EVENTs.event_id=event_occupancy.event_id and'
+									 ' building=:build and dept_id=:dept} and Events.date=:date_s'), params)
+	elif match == 'exact':
+		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, Events.description, '
+									 'Events.building, Events.code, Events.building, Events.date, event_occupancy.start_time,'
+									 'Events.dept_id FROM EVENTS left join event_occupancy using(event_id) WHERE'
+									 ' EVENTs.event_id=event_occupancy.event_id and '
+									 ' name_event=:event_name'
+									 ' and building=:build and dept_id=:dept and Events.date=:date_s'), params)
+	else:
+		params['event_name'] = f'%{event_name}%'
+		cursor = g.conn.execute(text('SELECT DISTINCT Events.event_id, Events.name_event,Events.introduction, Events.description, '
+									 'Events.building, Events.code, Events.building, Events.date, event_occupancy.start_time,'
+									 'Events.dept_id FROM EVENTS left join event_occupancy using(event_id) WHERE '
+									 'EVENTs.event_id=event_occupancy.event_id and '
+									 'name_event like :event_name and '
+									 'building=:build and dept_id=:dept and Events.date=:date_s'), params)
+
+	events = []
+	for e in cursor:
+		event = {'id': None, 'name': None, 'intro': None, 'description': None, 'blink': None, 'room': None,
+				 'bfname': None,
+				 'date': None, 'hour': None, 'dfname': None}
+		for _ in range(len(event.keys())):
+			event[list(event.keys())[_]] = e[_]
+			print(f'{e[_]} added!')
+		events.append(event)
+
+	cursor.close()
+
+	# might be removed if there is a map from building to blink, bfname, and from dept to dfname
+	# for e in events:
+	# 	e['bfname'] = None
+	# 	e['blink'] = None
+	# 	e['dfname'] = None
+
+	context = dict(a_list=events)
+
+
+	return render_template("display.html", **context)
+
+
+
+
 @app.route('/login')
 def login():
 	abort(401)
 	this_is_never_executed()
+
+
 
 
 if __name__ == "__main__":
