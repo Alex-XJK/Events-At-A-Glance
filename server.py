@@ -241,7 +241,7 @@ def display():
 			select_criteria += ' and Events.date=:date_s'
 		if select_criteria == 'WHERE Events.event_id=event_occupancy.event_id':
 			select_criteria = ''
-	elif mathch == 'exact':
+	elif match == 'exact':
 		select_criteria = 'WHERE name_event=:event_name '
 		if dept != 'ANY':
 			select_criteria += ' and dept_id=:dept '
@@ -250,7 +250,8 @@ def display():
 		if date != '':
 			select_criteria += ' and Events.date=:date_s'
 	else:
-		select_criteria = 'WHERE name_event like: event_name'
+		params['event_name'] = f'%{event_name}%'
+		select_criteria = 'WHERE name_event like :event_name'
 		if dept != 'ANY':
 			select_criteria += ' and dept_id=:dept '
 		if build != 'ANY':
