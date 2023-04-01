@@ -17,6 +17,7 @@ from flask import request
 from flask import Response
 from sqlalchemy import *
 from sqlalchemy.pool import NullPool
+
 # accessible as a variable in index.html:
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
