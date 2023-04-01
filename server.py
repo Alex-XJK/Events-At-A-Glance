@@ -13,13 +13,14 @@ from sqlalchemy import *
 from sqlalchemy.pool import NullPool
 from flask import Flask, request, render_template, g, redirect, Response
 
-tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+tmpl_dir = os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), 'templates')
 app = Flask(__name__, template_folder=tmpl_dir)
 
 #
 # The following is a dummy URI that does not connect to a valid database. You will need to modify it to connect to your Part 2 database in order to use the data.
 #
-# XXX: The URI should be in the format of: 
+# XXX: The URI should be in the format of:
 #
 #     postgresql://USER:PASSWORD@34.73.36.248/project1
 #
@@ -30,7 +31,8 @@ app = Flask(__name__, template_folder=tmpl_dir)
 # Modify these with your own credentials you received from TA!
 DATABASE_USERNAME = "ax2155"
 DATABASE_PASSWRD = "ODQyMg"
-DATABASE_HOST = "34.148.107.47"  # change to 34.28.53.86 if you used database 2 for part 2
+# change to 34.28.53.86 if you used database 2 for part 2
+DATABASE_HOST = "34.148.107.47"
 DATABASEURI = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWRD}@{DATABASE_HOST}/project1"
 
 #
@@ -60,17 +62,17 @@ engine = create_engine(DATABASEURI)
 @app.before_request
 def before_request():
     """
-	This function is run at the beginning of every web request 
-	(every time you enter an address in the web browser).
-	We use it to setup a database connection that can be used throughout the request.
+        This function is run at the beginning of every web request 
+        (every time you enter an address in the web browser).
+        We use it to setup a database connection that can be used throughout the request.
 
-	The variable g is globally accessible.
-	"""
+        The variable g is globally accessible.
+        """
     try:
         g.conn = engine.connect()
     except:
         print("uh oh, problem connecting to database")
-        import traceback;
+        import traceback
         traceback.print_exc()
         g.conn = None
 
@@ -78,9 +80,9 @@ def before_request():
 @app.teardown_request
 def teardown_request(exception):
     """
-	At the end of the web request, this makes sure to close the database connection.
-	If you don't, the database could run out of memory!
-	"""
+        At the end of the web request, this makes sure to close the database connection.
+        If you don't, the database could run out of memory!
+        """
     try:
         g.conn.close()
     except Exception as e:
@@ -96,21 +98,21 @@ def teardown_request(exception):
 #       @app.route("/foobar/", methods=["POST", "GET"])
 #
 # PROTIP: (the trailing / in the path is important)
-# 
+#
 # see for routing: https://flask.palletsprojects.com/en/1.1.x/quickstart/#routing
 # see for decorators: http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
 #
 @app.route('/')
 def index():
     """
-	request is a special object that Flask provides to access web request information:
+        request is a special object that Flask provides to access web request information:
 
-	request.method:   "GET" or "POST"
-	request.form:     if the browser submitted a form, this contains the data in the form
-	request.args:     dictionary of URL arguments, e.g., {a:1, b:2} for http://localhost?a=1&b=2
+        request.method:   "GET" or "POST"
+        request.form:     if the browser submitted a form, this contains the data in the form
+        request.args:     dictionary of URL arguments, e.g., {a:1, b:2} for http://localhost?a=1&b=2
 
-	See its API: https://flask.palletsprojects.com/en/1.1.x/api/#incoming-request-data
-	"""
+        See its API: https://flask.palletsprojects.com/en/1.1.x/api/#incoming-request-data
+        """
 
     #
     return render_template("index.html")
@@ -118,7 +120,7 @@ def index():
 
 #
 # This is an example of a different path.  You can see it at:
-# 
+#
 #     localhost:8111/another
 #
 # Notice that the function name is another() rather than index()
@@ -131,21 +133,21 @@ def another():
 
 @app.route('/new')
 def new():
-	cursor = []
-	select_building = "SELECT code from building"
-	select_dept = "SELECT dept_id from department"
-	cursor.append(g.conn.execute(text(select_building)))
-	cursor.append(g.conn.execute(text(select_dept)))
-	names = []
-	department = []
-	for result in cursor[0]:
-		names.append(result[0])
-	for result in cursor[1]:
-		department.append(result[0])
-	for c in cursor:
-		c.close()
-	context = dict(building=names, department=department)
-	return render_template("new.html", **context)
+    cursor = []
+    select_building = "SELECT code from building"
+    select_dept = "SELECT dept_id from department"
+    cursor.append(g.conn.execute(text(select_building)))
+    cursor.append(g.conn.execute(text(select_dept)))
+    names = []
+    department = []
+    for result in cursor[0]:
+        names.append(result[0])
+    for result in cursor[1]:
+        department.append(result[0])
+    for c in cursor:
+        c.close()
+    context = dict(building=names, department=department)
+    return render_template("new.html", **context)
 
 
 @app.route('/about')
@@ -207,8 +209,9 @@ def add():
     # check whether the prefered room exists: if not, build it
     hours = g.conn.execute(text(
         f'select start_time from loc_occupancy where building=:building and code=:code and date_occupied=:date_of_choice'),
-                           params)
-    room = g.conn.execute(text(f'select * from location where building=:building and code=:code'), params)
+        params)
+    room = g.conn.execute(
+        text(f'select * from location where building=:building and code=:code'), params)
     if room.rowcount == 0:
         g.conn.execute(text(
             'INSERT INTO location(building, code) VALUES (:building, :code)'), params)
@@ -221,15 +224,16 @@ def add():
         try:
             g.conn.execute(text(
                 'INSERT INTO loc_occupancy(building, code, date_occupied, start_time) VALUES (:building, :code, :date_of_choice, :start_hour)'),
-                           params)
+                params)
         except:
             return redirect('/hour')
         # 2. Insert into Events
         g.conn.execute(text(
             'INSERT INTO Events(event_id, name_event, introduction, description, date, dept_id, building, code) VALUES (:id, :event_name, :intro, :description, :date_of_choice, :dept_id, :building, :code)'),
-                       params)
+            params)
         # 3. Insert into Event Occupancy
-        g.conn.execute(text('INSERT INTO Event_occupancy(event_id, start_time) VALUES (:id, :start_hour)'), params)
+        g.conn.execute(text(
+            'INSERT INTO Event_occupancy(event_id, start_time) VALUES (:id, :start_hour)'), params)
         g.conn.commit()
         return redirect('/')
 
@@ -355,7 +359,6 @@ def login():
 if __name__ == "__main__":
     import click
 
-
     @click.command()
     @click.option('--debug', is_flag=True)
     @click.option('--threaded', is_flag=True)
@@ -363,16 +366,16 @@ if __name__ == "__main__":
     @click.argument('PORT', default=8111, type=int)
     def run(debug, threaded, host, port):
         """
-		This function handles command line parameters.
-		Run the server using:
+                This function handles command line parameters.
+                Run the server using:
 
-			python server.py
+                        python server.py
 
-		Show the help text using:
+                Show the help text using:
 
-			python server.py --help
+                        python server.py --help
 
-		"""
+                """
 
         HOST, PORT = host, port
         print("running on %s:%d" % (HOST, PORT))
