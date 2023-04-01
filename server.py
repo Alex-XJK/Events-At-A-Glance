@@ -17,10 +17,10 @@ from flask import request
 from flask import Response
 from sqlalchemy import *
 from sqlalchemy.pool import NullPool
+
 # accessible as a variable in index.html:
 
-tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        "templates")
+tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
 app = Flask(__name__, template_folder=tmpl_dir)
 
 #
@@ -222,14 +222,11 @@ def add():
         params,
     )
     room = g.conn.execute(
-        text(
-            f"select * from location where building=:building and code=:code"),
-        params)
+        text(f"select * from location where building=:building and code=:code"), params
+    )
     if room.rowcount == 0:
         g.conn.execute(
-            text(
-                "INSERT INTO location(building, code) VALUES (:building, :code)"
-            ),
+            text("INSERT INTO location(building, code) VALUES (:building, :code)"),
             params,
         )
     # check whether there is an hour conflict: if yes, lead to hour page
@@ -317,7 +314,8 @@ def display():
         f"FROM EVENTS left join event_occupancy using(event_id) "
         f"left join building on EVENTS.building=building.code "
         f"left join department using(dept_id) "
-        f"{select_criteria}")
+        f"{select_criteria}"
+    )
 
     cursor = g.conn.execute(text(exe), params)
     # if len(event_name) == 0:
