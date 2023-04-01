@@ -9,10 +9,15 @@ Read about it online.
 """
 import os
 
-from flask import Flask, Response, g, redirect, render_template, request
-# accessible as a variable in index.html:
+from flask import Flask
+from flask import g
+from flask import redirect
+from flask import render_template
+from flask import request
+from flask import Response
 from sqlalchemy import *
 from sqlalchemy.pool import NullPool
+# accessible as a variable in index.html:
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
 app = Flask(__name__, template_folder=tmpl_dir)
