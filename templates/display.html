@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>{% block title %} Result display {% endblock %}</h1>
+    <h4>You have {{ a_list|length }} matching result(s)</h4>
 
     {% for e in a_list %}
 
@@ -39,6 +40,8 @@
                     </tr>
                 </tfoot>
             </table>
+            <br>
         </div>
+
     {% endfor %}
 {% endblock %}

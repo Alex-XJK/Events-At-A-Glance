@@ -7,42 +7,48 @@
             <legend>Events Specifics</legend>
             <div>
 
-            <div id="eid">
+                <div id="eid">
                     <h3>Give a preferred index to your event</h3>
                     <label for="id">Event Index:</label>
                     <input type="text" id="id" name="id"
-                           maxlength="10">
+                           maxlength="10" width="10" required>
                 </div>
-            <div id="ename">
+                <div id="ename">
                     <h3>Give a name for your event</h3>
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name"
-                           maxlength="10">
+                           maxlength="30" width="30" required>
                 </div>
-            <div id="eintro">
+                <div id="eintro">
                     <h3>Brief Introduction</h3>
-                    <input type="text" id="intro" name="introduction"
-                           maxlength="30">
+                    <textarea id="introduction" name="introduction" rows="2" cols="50"></textarea>
                 </div>
-            <div id="edesc">
+                <div id="edesc">
                     <h3>Description</h3>
-                    <input type="text" id="desc" name="description"
-                           maxlength="30">
+                    <textarea id="description" name="description" rows="10" cols="50"></textarea>
                 </div>
                 <div id="edate">
                     <h3>Proposing date</h3>
                     <label for="date">Start date:</label>
                     <input type="date" id="date" name="date"
-                           min="2023-01-01" max="2023-05-31">
+                           min="2023-01-01" max="2023-05-31" required>
                 </div>
                 <div id="edept">
                     <h3>Department</h3>
-                    <input type="text" name="dept_id">
+                    <select name="dept_id">
+                        {% for d in department %}
+                            <option value="{{d}}">{{ d }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
 
                 <div id="ebuild">
                     <h3>Intended Building:</h3>
-                    <input type="text" name="building">
+                    <select name="building">
+                        {% for b in building %}
+                            <option value="{{b}}">{{ b }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
 
                 <div id="eroom">
@@ -52,7 +58,7 @@
                 </div>
                 <div id="etime">
                     <h3>Intended Starting Time(0-23)</h3>
-                    <input type="number" name="hour" min="0" max="23">
+                    <input type="number" name="hour" min="0" max="23" required>
                 </div>
             </div>
             <div>

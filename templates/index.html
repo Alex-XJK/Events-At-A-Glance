@@ -3,8 +3,6 @@
 {% block content %}
     <h1>{% block title %} Welcome {% endblock %}</h1>
 
-    <img src="{{ url_for('static', filename='partyevents.png')}}" width="75%" alt="welcome picture">
-
     <p>
         Are you tired of looking for information on events from various school platforms?
         Have you ever been sad that you missed a favorite show?
@@ -15,5 +13,7 @@
         We use new technology to define a new platform, and a new platform to bring you a new life!
         Welcome to Events-At-A-Glance, your personal campus event assistant.
     </p>
+
+    <img src="{{ url_for('static', filename='partyevents.png')}}" width="50%" height="50%" alt="welcome picture">
 
 {% endblock %}
