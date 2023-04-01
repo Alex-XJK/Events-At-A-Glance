@@ -9,12 +9,7 @@ Read about it online.
 """
 import os
 
-from flask import Flask
-from flask import g
-from flask import redirect
-from flask import render_template
-from flask import request
-from flask import Response
+from flask import Flask, Response, g, redirect, render_template, request
 from sqlalchemy import *
 from sqlalchemy.pool import NullPool
 
