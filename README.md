@@ -26,7 +26,7 @@ Click on this link will redirect you to our project page.
 ## Interesting page examples
 
 1,
-  
+
 2,
 
 ---
