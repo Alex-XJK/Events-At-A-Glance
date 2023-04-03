@@ -1,45 +1,12 @@
-<html>
-  <style>
-    body{
-      font-size: 15pt;
-      font-family: arial;
-    }
-  </style>
+{% extends 'base.html' %}
 
-
-<body>
-  <h1>Announce your planning events</h1>
-  <div>{{data}}</div>
-
-  <div>
-    {% for n in data %}
-    <div>{{n}}</div>
-    {% endfor %}
-  </div>
-
-<form method="POST" action="/add">
-     EventID(Mandatory):<br>
-    <input type="text" name="id"><br>
-     <p>Name of new events:<br>
-     <input type="text" name="name"><br>
-      Brief Introduction(no more than 30 words, optional):<br>
-     <input type="text" name="introduction" maxlength="30"><br>
-     Event Description(no more than 300 words, optional):<br>
-     <input type="text" name="description" maxlength="300"><br>
-     Date:<br>
-         <input type="date" name="date" min="2023-01-01" max="2023-05-31"><br>
-    Department(Abbreviation, optional):<br>
-    <input type="text" name="dept_id"><br>
-    Intended Building:<br>
-    <input type="text" name="building"><br>
-    Intended Room:<br>
-    <input type="number" name="code" min="100" max="1000"><br>
-         Intended Starting Time(0-23):
-    <input type="number" name="hour" min="0" max="23"><br>
-  <input type="submit" value="Add"></p>
-</form>
-
-</body>
-
-
-</html>
+{% block content %}
+    <h1>{% block title %} Sorry {% endblock %}</h1>
+    <h3>
+        The Events ID (and Title) is conflicting with an existing event: Please find another one!
+    </h3>
+    <hr>
+    <p>
+        <a href="{{ url_for('index') }}">Return To Homepage!</a>
+    </p>
+{% endblock %}

@@ -135,9 +135,6 @@ def index():
 # Notice that the function name is another() rather than index()
 # The functions for each app.route need to have different names
 #
-@app.route("/another")
-def another():
-    return render_template("another.html")
 
 
 @app.route("/new")
@@ -168,6 +165,9 @@ def about():
 def hour():
     return render_template("hour.html")
 
+@app.route("/another")
+def another():
+    return render_template("another.html")
 
 @app.route("/query")
 def query():
@@ -236,34 +236,35 @@ def add():
     # check whether there is an hour conflict: if yes, lead to hour page
     for h in hours:
         if start_hour == h[0]:
-            return redirect("/hour")
-    else:
-        # 1. Insert into Location Occupancy
-        try:
-            g.conn.execute(
-                text(
-                    "INSERT INTO loc_occupancy(building, code, date_occupied, start_time) VALUES (:building, :code, :date_of_choice, :start_hour)"
-                ),
-                params,
-            )
-        except:
-            return redirect("/hour")
-        # 2. Insert into Events
+            #context = dict(message="hour error!")
+            return redirect('/hour')
+            #return render_template("hour.html", **context)
+
+    # 1. Insert into Location Occupancy
+    try:
         g.conn.execute(
             text(
                 "INSERT INTO Events(event_id, name_event, introduction, description, date, dept_id, building, code) VALUES (:id, :event_name, :intro, :description, :date_of_choice, :dept_id, :building, :code)"
             ),
             params,
         )
-        # 3. Insert into Event Occupancy
+        g.conn.execute(
+            text(
+                "INSERT INTO loc_occupancy(building, code, date_occupied, start_time) VALUES (:building, :code, :date_of_choice, :start_hour)"
+            ),
+            params,
+        )
         g.conn.execute(
             text(
                 "INSERT INTO Event_occupancy(event_id, start_time) VALUES (:id, :start_hour)"
             ),
             params,
         )
-        g.conn.commit()
-        return redirect("/")
+    except:
+        return redirect("/another")
+
+    g.conn.commit()
+    return redirect("/")
 
 
 @app.route("/display", methods=["POST"])
