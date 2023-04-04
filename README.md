@@ -14,7 +14,8 @@ ax2155
 ## Website URL
 
 http://ap.cs.columbia.edu/~ax2155/database  
-Click on this link will redirect you to our project page.
+Click on this link will redirect you to our project page. 
+(You can also visit through ip:port directly:http://34.139.78.238:8111)
 
 ## Environment requirements
 
