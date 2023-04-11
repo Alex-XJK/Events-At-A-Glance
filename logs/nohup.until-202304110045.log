@@ -1,0 +1,454 @@
+running on 0.0.0.0:8111
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8111
+ * Running on http://10.142.0.2:8111
+[33mPress CTRL+C to quit[0m
+128.59.176.5 - - [03/Apr/2023 19:10:27] "GET / HTTP/1.1" 200 -
+128.59.176.5 - - [03/Apr/2023 19:10:28] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.5 - - [03/Apr/2023 19:10:34] "GET /about HTTP/1.1" 200 -
+128.59.176.5 - - [03/Apr/2023 19:12:44] "GET / HTTP/1.1" 200 -
+128.59.176.5 - - [03/Apr/2023 19:12:44] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.5 - - [03/Apr/2023 19:13:01] "GET / HTTP/1.1" 200 -
+128.59.176.5 - - [03/Apr/2023 19:13:01] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.5 - - [03/Apr/2023 19:13:33] "GET / HTTP/1.1" 200 -
+128.59.176.5 - - [03/Apr/2023 19:13:33] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:06:23] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:06:23] "GET /static/partyevents.png HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:06:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+128.59.176.154 - - [03/Apr/2023 20:18:53] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:18:53] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:19:15] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:19:15] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:39] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:39] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:39] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:21:44] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:44] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:49] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:49] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:49] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:21:50] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:51] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:52] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:21:54] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:54] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:56] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:56] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:21:56] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:22:08] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:08] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:16] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:16] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:16] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:22:17] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:17] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:17] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:22:19] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:19] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:19] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:22:21] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:21] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:23] "GET /about HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:23] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:26] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:26] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:28] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:28] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:29] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:29] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:30] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:22:31] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:31] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:32] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:22:33] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:33] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:39] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:22:39] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:38:18] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:38:31] "GET /query HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:38:45] "POST /display HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:38:50] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:38:50] "GET /new HTTP/1.1" 200 -
+[2023-04-03 20:39:18,070] ERROR in app: Exception on /add [POST]
+Traceback (most recent call last):
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "events_pkey"
+DETAIL:  Key (event_id)=(WEB3) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "server.py", line 252, in add
+    g.conn.execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 485, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "events_pkey"
+DETAIL:  Key (event_id)=(WEB3) already exists.
+
+[SQL: INSERT INTO Events(event_id, name_event, introduction, description, date, dept_id, building, code) VALUES (%(id)s, %(event_name)s, %(intro)s, %(description)s, %(date_of_choice)s, %(dept_id)s, %(building)s, %(code)s)]
+[parameters: {'id': 'WEB3', 'event_name': 'Duo again', 'intro': '', 'description': '', 'date_of_choice': '2023-04-05', 'dept_id': 'CS', 'building': 'CSC', 'code': 123}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+128.59.176.154 - - [03/Apr/2023 20:39:18] "[35m[1mPOST /add HTTP/1.1[0m" 500 -
+128.59.176.154 - - [03/Apr/2023 20:46:39] "GET / HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:46:40] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.176.154 - - [03/Apr/2023 20:46:46] "GET /new HTTP/1.1" 200 -
+128.59.176.154 - - [03/Apr/2023 20:46:46] "GET /new HTTP/1.1" 200 -
+167.248.133.126 - - [03/Apr/2023 22:46:28] code 400, message Bad request version ('ä\x8eÎo')
+167.248.133.126 - - [03/Apr/2023 22:46:28] "[35m[1m î  êM*bÉÏ56W¥]zÄ4+'ÒfF63ÝÐP äÎo[0m" HTTPStatus.BAD_REQUEST -
+167.248.133.126 - - [03/Apr/2023 22:46:29] "GET / HTTP/1.1" 200 -
+167.248.133.126 - - [03/Apr/2023 22:46:29] "GET / HTTP/1.1" 200 -
+167.248.133.126 - - [03/Apr/2023 22:46:29] code 505, message Invalid HTTP version (2.0)
+167.248.133.126 - - [03/Apr/2023 22:46:29] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.248.133.126 - - [03/Apr/2023 22:46:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+128.59.179.170 - - [04/Apr/2023 01:05:32] "GET / HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:05:32] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.170 - - [04/Apr/2023 01:05:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+running on 0.0.0.0:8111
+ * Serving Flask app 'server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8111
+ * Running on http://10.142.0.2:8111
+[33mPress CTRL+C to quit[0m
+128.59.179.170 - - [04/Apr/2023 01:19:33] "GET / HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:19:33] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.170 - - [04/Apr/2023 01:19:37] "GET /new HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:20:06] "[32mPOST /add HTTP/1.1[0m" 302 -
+128.59.179.170 - - [04/Apr/2023 01:20:06] "GET /another HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:20:11] "GET / HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:20:12] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.170 - - [04/Apr/2023 01:20:14] "GET /query HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:20:25] "POST /display HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:20:29] "GET /new HTTP/1.1" 200 -
+128.59.179.170 - - [04/Apr/2023 01:20:31] "GET /about HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 02:35:16] "GET / HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 02:35:16] "GET /static/partyevents.png HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 02:35:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+151.205.174.152 - - [04/Apr/2023 02:50:54] "GET / HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 02:50:54] "GET /static/partyevents.png HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 02:50:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+172.85.116.70 - - [04/Apr/2023 04:29:55] "GET / HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:29:55] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.70 - - [04/Apr/2023 04:29:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2023-04-04 04:30:07,465] ERROR in app: Exception on /new [GET]
+Traceback (most recent call last):
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.OperationalError: SSL SYSCALL error: EOF detected
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "server.py", line 145, in new
+    cursor.append(g.conn.execute(text(select_building)))
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 485, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT code from building]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.85.116.70 - - [04/Apr/2023 04:30:07] "[35m[1mGET /new HTTP/1.1[0m" 500 -
+172.85.116.70 - - [04/Apr/2023 04:30:11] "GET /new HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:13] "GET /about HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:14] "GET /new HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:15] "GET /query HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:16] "GET / HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:16] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.70 - - [04/Apr/2023 04:30:17] "GET /query HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:17] "GET /new HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:19] "GET /about HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:20] "GET /new HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:21] "GET /query HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:22] "GET / HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:30:22] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.70 - - [04/Apr/2023 04:30:38] "GET /about HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:31:05] "GET /query HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:31:08] "POST /display HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:32:04] "GET /query HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:32:11] "POST /display HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:32:13] "GET /query HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:32:25] "POST /display HTTP/1.1" 200 -
+172.85.116.70 - - [04/Apr/2023 04:32:37] "[31m[1mPOST /display HTTP/1.1[0m" 400 -
+172.85.116.70 - - [04/Apr/2023 04:32:46] "GET /new HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 05:09:30] "GET /new HTTP/1.1" 200 -
+151.205.174.152 - - [04/Apr/2023 05:09:30] "GET / HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:19:51] "GET / HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:19:51] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.88 - - [04/Apr/2023 17:19:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+172.85.116.88 - - [04/Apr/2023 17:20:10] "GET /query HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:20:11] "GET /new HTTP/1.1" 200 -
+185.180.143.81 - - [04/Apr/2023 17:21:27] "GET / HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:21:27] "GET /query HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:21:30] "POST /display HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:22:08] "GET /query HTTP/1.1" 200 -
+172.85.116.88 - - [04/Apr/2023 17:23:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+172.85.116.88 - - [04/Apr/2023 17:23:12] "POST /display HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:47:52] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:47:52] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:47:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+128.59.179.214 - - [04/Apr/2023 17:48:55] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:48:55] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:48:55] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:49:16] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:16] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:17] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:49:42] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:42] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:42] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:42] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:49:42] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:49:52] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:52] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:49:56] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:49:56] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:59:31] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 17:59:31] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 17:59:47] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:00] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:00] "GET / HTTP/1.1" 200 -
+24.220.112.134 - - [04/Apr/2023 18:01:00] "GET / HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:01:00] "POST /display HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:01:39] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:39] "GET /static/partyevents.png HTTP/1.1" 200 -
+24.220.112.134 - - [04/Apr/2023 18:01:39] "GET /static/partyevents.png HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:39] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:39] "GET /query HTTP/1.1" 200 -
+63.117.14.8 - - [04/Apr/2023 18:01:39] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:39] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:01:51] "POST /display HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:01:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+128.59.179.214 - - [04/Apr/2023 18:02:02] "POST /display HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:05] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:16] "POST /display HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:20] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:29] "POST /display HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:02:57] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:02:57] "POST /display HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:57] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:57] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:57] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:02:57] "GET /new HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:03:01] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:03:01] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+128.59.179.214 - - [04/Apr/2023 18:03:01] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:03:04] "GET /new HTTP/1.1" 200 -
+205.213.114.68 - - [04/Apr/2023 18:04:17] "GET /new HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:04:17] "GET /new HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:04:17] "GET /new HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:04:17] "GET /new HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:04:17] "GET /query HTTP/1.1" 200 -
+128.59.179.214 - - [04/Apr/2023 18:04:23] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:04:23] "[32mPOST /add HTTP/1.1[0m" 302 -
+209.2.225.209 - - [04/Apr/2023 18:04:23] "GET / HTTP/1.1" 200 -
+63.117.14.74 - - [04/Apr/2023 18:04:23] "[31m[1mGET /add HTTP/1.1[0m" 405 -
+128.59.179.214 - - [04/Apr/2023 18:04:23] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:04:24] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:04:27] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:04:34] "POST /display HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:05:06] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:05:28] "[32mPOST /add HTTP/1.1[0m" 302 -
+209.2.225.209 - - [04/Apr/2023 18:05:28] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:05:28] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:05:31] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:05:44] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:01] "[32mPOST /add HTTP/1.1[0m" 302 -
+209.2.225.209 - - [04/Apr/2023 18:06:01] "GET /another HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:06] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:09] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:12] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:13] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:13] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:06:16] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:16] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:19] "GET /about HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:30] "GET /new HTTP/1.1" 200 -
+208.53.195.133 - - [04/Apr/2023 18:06:30] "GET /about HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:37] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:42] "POST /display HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:06:54] "POST /display HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:07:12] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:07:31] "[32mPOST /add HTTP/1.1[0m" 302 -
+209.2.225.209 - - [04/Apr/2023 18:07:31] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:07:31] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:07:36] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:07:39] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:07:58] "[32mPOST /add HTTP/1.1[0m" 302 -
+209.2.225.209 - - [04/Apr/2023 18:07:58] "GET /another HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:08:03] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:08:03] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:08:05] "GET /about HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:08:07] "GET /new HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:08:08] "GET /query HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:08:31] "POST /display HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:09:30] "GET / HTTP/1.1" 200 -
+209.2.225.209 - - [04/Apr/2023 18:09:30] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+209.2.225.209 - - [04/Apr/2023 18:09:32] "GET /query HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:47:16] "GET / HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:47:16] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.65 - - [04/Apr/2023 19:47:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+172.85.116.65 - - [04/Apr/2023 19:47:29] "GET / HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:47:29] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.65 - - [04/Apr/2023 19:47:31] "GET /new HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:47:33] "GET /query HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:47:41] "POST /display HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:48:25] "GET /new HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:48:33] "GET /about HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:48:46] "GET / HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:48:46] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.65 - - [04/Apr/2023 19:48:59] "GET /query HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:01] "GET /new HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:03] "GET /about HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:03] "GET /new HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:05] "GET /query HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:11] "POST /display HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:38] "GET /new HTTP/1.1" 200 -
+172.85.116.65 - - [04/Apr/2023 19:49:39] "GET /about HTTP/1.1" 200 -
+167.248.133.34 - - [05/Apr/2023 14:54:35] "GET / HTTP/1.1" 200 -
+167.248.133.34 - - [05/Apr/2023 14:54:36] code 505, message Invalid HTTP version (2.0)
+167.248.133.34 - - [05/Apr/2023 14:54:36] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.248.133.34 - - [05/Apr/2023 14:54:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+45.12.147.2 - - [06/Apr/2023 14:07:24] "GET http://azenv.net/ HTTP/1.1" 200 -
+195.88.24.240 - - [06/Apr/2023 17:16:47] code 400, message Bad request syntax ('\x05\x01\x00')
+195.88.24.240 - - [06/Apr/2023 17:16:47] "[35m[1m [0m" HTTPStatus.BAD_REQUEST -
+195.88.24.240 - - [06/Apr/2023 18:31:08] code 400, message Bad request syntax ('\x05\x01\x00')
+195.88.24.240 - - [06/Apr/2023 18:31:08] "[35m[1m [0m" HTTPStatus.BAD_REQUEST -
+209.2.224.5 - - [06/Apr/2023 19:22:34] "GET / HTTP/1.1" 200 -
+209.2.224.5 - - [06/Apr/2023 19:22:34] "GET /static/partyevents.png HTTP/1.1" 200 -
+195.88.24.240 - - [06/Apr/2023 20:48:13] "[33mCONNECT google.com:443 HTTP/1.1[0m" 404 -
+167.94.138.35 - - [06/Apr/2023 20:53:23] code 400, message Bad request version ('À\x14À')
+167.94.138.35 - - [06/Apr/2023 20:53:23] "[35m[1m î  êgìe%ïYúà¤*ü"Þ¸ÉH¢||wò­yiÓî äMhÞð!<ÜõÎ"ôù¥àÌn,czÅ`Ëä,= &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.35 - - [06/Apr/2023 20:53:24] "GET / HTTP/1.1" 200 -
+167.94.138.35 - - [06/Apr/2023 20:53:24] "GET / HTTP/1.1" 200 -
+167.94.138.35 - - [06/Apr/2023 20:53:24] code 505, message Invalid HTTP version (2.0)
+167.94.138.35 - - [06/Apr/2023 20:53:24] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.35 - - [06/Apr/2023 20:53:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+213.255.227.165 - - [07/Apr/2023 22:01:48] code 400, message Bad request syntax ('\x05\x01\x00')
+213.255.227.165 - - [07/Apr/2023 22:01:48] "[35m[1m [0m" HTTPStatus.BAD_REQUEST -
+194.165.16.78 - - [08/Apr/2023 04:15:46] code 400, message Bad HTTP/0.9 request type ("\x03\x00\x00,'à\x00\x00\x00\x00\x00Cookie:")
+194.165.16.78 - - [08/Apr/2023 04:15:46] "[35m[1m  ,'à     Cookie: mstshash=Domain[0m" HTTPStatus.BAD_REQUEST -
+194.165.16.78 - - [08/Apr/2023 04:15:47] code 400, message Bad HTTP/0.9 request type ("\x03\x00\x00,'à\x00\x00\x00\x00\x00Cookie:")
+194.165.16.78 - - [08/Apr/2023 04:15:47] "[35m[1m  ,'à     Cookie: mstshash=Domain[0m" HTTPStatus.BAD_REQUEST -
+213.255.227.165 - - [08/Apr/2023 12:27:38] code 400, message Bad request syntax ('\x05\x01\x00')
+213.255.227.165 - - [08/Apr/2023 12:27:38] "[35m[1m [0m" HTTPStatus.BAD_REQUEST -
+213.255.227.165 - - [08/Apr/2023 14:34:44] "[33mCONNECT google.com:443 HTTP/1.1[0m" 404 -
+167.94.138.124 - - [08/Apr/2023 16:28:49] "GET / HTTP/1.1" 200 -
+167.94.138.124 - - [08/Apr/2023 16:28:49] code 505, message Invalid HTTP version (2.0)
+167.94.138.124 - - [08/Apr/2023 16:28:49] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.124 - - [08/Apr/2023 16:28:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+172.85.116.107 - - [08/Apr/2023 18:55:21] "GET / HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:55:32] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.107 - - [08/Apr/2023 18:55:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2023-04-08 18:55:55,704] ERROR in app: Exception on /query [GET]
+Traceback (most recent call last):
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.OperationalError: SSL SYSCALL error: EOF detected
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "server.py", line 177, in query
+    cursor.append(g.conn.execute(text(select_building)))
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 485, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ax2155/.virtualenvs/dbproj/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) SSL SYSCALL error: EOF detected
+
+[SQL: SELECT code from building]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+172.85.116.107 - - [08/Apr/2023 18:55:55] "[35m[1mGET /query HTTP/1.1[0m" 500 -
+172.85.116.107 - - [08/Apr/2023 18:55:58] "GET /query HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:56:03] "GET /new HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:56:05] "GET /about HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:56:35] "GET / HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:56:35] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+172.85.116.107 - - [08/Apr/2023 18:56:41] "GET /query HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:56:43] "POST /display HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:57:40] "GET /new HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:57:42] "GET / HTTP/1.1" 200 -
+172.85.116.107 - - [08/Apr/2023 18:57:42] "[36mGET /static/partyevents.png HTTP/1.1[0m" 304 -
+194.165.17.11 - - [09/Apr/2023 04:19:04] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+194.165.17.11 - - [09/Apr/2023 04:19:04] "[35m[1m  /*à     Cookie: mstshash=Administr[0m" HTTPStatus.BAD_REQUEST -
+162.142.125.12 - - [10/Apr/2023 17:36:22] "GET / HTTP/1.1" 200 -
+162.142.125.12 - - [10/Apr/2023 17:36:22] code 505, message Invalid HTTP version (2.0)
+162.142.125.12 - - [10/Apr/2023 17:36:22] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+162.142.125.12 - - [10/Apr/2023 17:36:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
