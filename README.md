@@ -1,5 +1,7 @@
 # COMS 4111 Web Front-End Project
 
+**This project was published in accordance with Prof. Kenneth Ross' note Ed#449.**  
+
 ## Events At A Glance
 
 Python Flask and PostgreSQL based one-stop campus event managing and searching platform.
@@ -9,13 +11,13 @@ Python Flask and PostgreSQL based one-stop campus event managing and searching p
 
 ## PostgreSQL account
 
-ax2155
+ENV_USER
 
 ## Website URL
 
-http://ap.cs.columbia.edu/~ax2155/database  
+ARGV_LINK   
 Click on this link will redirect you to our project page. 
-(You can also visit through ip:port directly:http://34.139.78.238:8111)
+(You can also visit through ip:port directly: http://ARGV_IP:ARGV_PORT/)
 
 ## Environment requirements
 
